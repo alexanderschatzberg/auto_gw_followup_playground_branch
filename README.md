@@ -5,11 +5,21 @@ This program takes in a list (not sure what shape they will take now) of tiles f
 ## File structure
 
 - `main.py` - Main file (believe it or not), pulls the rest of the functions together and executes them in the correct order
-- `gen_rtml.py` - Takes the data from teglon and generates RTML pointings that can be uploaded
-- `get_teglon_data.py` - [TODO] Gets data from teglon
+- `gen_rtml.py` - Takes the parsed data from `get_teglon_data()` and generates RTML pointings that can be uploaded
+- `get_teglon_data.py` - Gets and parses data from teglon based on an event ID
 - `parse_args.py` - Parses command line arguments so script can be changed manually
-- `tile.py` - The structure that each tile should conform to
-- `upload_to_acp_py` - [TODO] Uploads the RTML file to our ACP scheduler
+- `tile.py` - The structure that each tile should conform to. Has fields like RA, Dec, and Rank.
+- `upload_to_acp.py` - [TODO] Uploads the RTML file to our ACP scheduler
+
+## Next steps
+
+- Add a listener to the slack channel to determine when an event has beem triggered
+- Finish `upload_to_acp`
+
+## How to set up the conda env
+
+- First create a conda enviroment using the command `conda create -n gw_followup python=3.10 pip`
+- While in the project's directory run the command `pip install -r requirements.txt` to install all dependencies
 
 ## Note on using `playwright`
 

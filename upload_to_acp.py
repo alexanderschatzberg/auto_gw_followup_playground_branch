@@ -1,3 +1,4 @@
+# Incomplete
 import asyncio
 
 from secrets import get_acp_pass
@@ -13,9 +14,13 @@ def upload_to_acp(path_to_rtml: str):
         page = browser.new_page()
         acp_login = get_acp_pass()
 
-        authenticated_url = f"http://{acp_login["username"]}:{acp_login["password"]}@10.0.0.71"
+        authenticated_url = (
+            f"http://{acp_login['username']}:{acp_login['password']}@10.0.0.71"
+        )
 
-        page.goto(authenticated_url, timeout=0) #Don't timeout, our server is really slow. 
+        page.goto(
+            authenticated_url, timeout=0
+        )  # Don't timeout, our server is really slow.
 
         # Naviagte to upload page
         scheduled_div = page.query_selector_all("text=Scheduled")[0]
@@ -33,7 +38,7 @@ def upload_to_acp(path_to_rtml: str):
         # Submit
         page.get_by_label("Enable immediately").click()
         page.screenshot(path="upload2.png")
-        #page.wait_for_selector("text=Submit RTML").click()
+        # page.wait_for_selector("text=Submit RTML").click()
         browser.close()
 
 

@@ -33,7 +33,8 @@ def main(output_path: str, observer: str, email: str, band: str, description: st
         description = args.get("description")
 
     # Get data from Teglon
-    teglon_data: list = get_teglon_data()
+    dummy_id = "S230830b"
+    teglon_data: list = get_teglon_data(dummy_id)
 
     # Generate RTML file
     gen_rtml(

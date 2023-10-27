@@ -96,7 +96,8 @@ def gen_rtml(
         generate_entry(
             ra=tile.ra,
             dec=tile.dec,
-            priority=tile.priority,
+            priority=11000
+            - tile.rank,  # This will allow up to observe the secions in order of priority
             targ_name=tile.targ_name,
             observer=observer,
             output=output,
